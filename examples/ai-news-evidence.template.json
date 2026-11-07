@@ -1,0 +1,28 @@
+{
+  "title": "模板：AI 新闻片证据（不是成片）",
+  "hook": "把已核实的证据换成这两句旁白。",
+  "core_message": "本文件只演示字段，不包含已核实新闻。",
+  "tone": "克制、清楚",
+  "style": "clean-professional",
+  "target_audience": "关注 AI 行业的中文观众",
+  "target_platform": "youtube",
+  "target_duration_seconds": 150,
+  "language": "zh",
+  "pipeline": "documentary-montage",
+  "evidence": [
+    {
+      "id": "e1",
+      "claim": "待填：第一条已核实事实",
+      "narration": "这里替换成第一条旁白。不要把模板句子当成新闻。",
+      "source": "待填来源，例如报道标题与日期",
+      "visual_note": "待填画面"
+    },
+    {
+      "id": "e2",
+      "claim": "待填：第二条已核实事实",
+      "narration": "这里替换成第二条旁白。时长由条目均分到 150 秒，导演只调整顺序和时间。",
+      "source": "待填来源",
+      "visual_note": "待填画面"
+    }
+  ]
+}

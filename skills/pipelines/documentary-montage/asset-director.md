@@ -40,6 +40,15 @@ simultaneously generate TTS narration, build audio mixes, create
 subtitles, and search for music. This dramatically reduces total
 production time.
 
+### DeepSeek news timeline
+
+If `python -m lib.deepseek_director` already wrote this project, keep its
+`edit_decisions` timeline and narration asset ids. Despina lines are
+`openrouter_tts` (`google/gemini-3.8-flash-tts`, voice `Despina`, PCM wrapped
+to WAV). Run `python -m lib.deepseek_director dub --project-id <id>` for those
+slots. Placeholder plates in `assets/video/` are not footage; replace them
+before treating the render as a film. Details: `docs/deepseek-openrouter-news.md`.
+
 **Fallback:** If the fast path yields poor visual matches for specific
 slots, use `corpus_builder` + `clip_search` for just those slots.
 The two approaches are not mutually exclusive.

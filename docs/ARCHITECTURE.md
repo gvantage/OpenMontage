@@ -93,6 +93,8 @@ Python provides **tools and persistence only**. All intelligence lives in skill 
 
 OpenMontage does not call LLM APIs at runtime. The coding assistant running in the user's IDE _is_ the LLM. Tools that need generation (images, video, TTS) call domain-specific APIs directly (ElevenLabs, fal.ai, HeyGen, etc.), not general-purpose LLM endpoints.
 
+可选的直接 DeepSeek 导演不改变上面的默认路径，也不占用 `config.yaml` 的 `llm.provider`。`python -m lib.deepseek_director` 只用 `DEEPSEEK_API_KEY` 调用 `https://api.deepseek.com/chat/completions`，把证据文件收成可渲染的 brief / script / scene_plan / asset_manifest / edit_decisions。Despina 旁白走另一条 `OPENROUTER_API_KEY` 的 `openrouter_tts`。说明见 `docs/deepseek-openrouter-news.md`。
+
 ### 3. Dual-Provider Support
 
 Every capability must support both **API providers** (cloud, paid) and **local/open-source alternatives** (free, GPU-dependent). The selector pattern enforces this by routing to whatever is available.

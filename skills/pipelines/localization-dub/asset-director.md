@@ -33,6 +33,8 @@ This prevents the most expensive mistake: generating 10+ dubbed assets in a dire
 
 Use the approved translated script package, not raw machine output. Record which voice or synthesis path was used for each language.
 
+When the approved voice is OpenRouter Despina, call `openrouter_tts` directly, or set `OPENMONTAGE_OPENROUTER_TTS=1` and pass `preferred_tool: openrouter_tts` to `tts_selector`. The key alone does not change automatic TTS ranking. The model is `google/gemini-3.8-flash-tts`, the voice is `Despina`, and the tool POSTs `https://openrouter.ai/api/v1/audio/speech` with `response_format: pcm`, then writes WAV. A DeepSeek-directed news timeline already stores those slots; synthesize them with `python -m lib.deepseek_director dub` instead of a different provider. See `docs/deepseek-openrouter-news.md`.
+
 ### 3. Treat Lip Sync As Optional
 
 Only generate lip-sync assets for scenes and languages that actually need it. If the tool path is blocked, record that and keep the dub-audio path alive.

@@ -104,6 +104,23 @@ VIDEO_GEN_LOCAL_MODEL=       # wan2.2-ti2v-5b, wan2.1-1.3b, wan2.1-14b, hunyuan-
 # COMFYUI (optional overrides; localhost:8188 is the default)
 COMFYUI_SERVER_URL=          # Local ComfyUI server for shared workflows
 COMFYUI_VIDEO_SERVER_URL=    # Optional video-specific ComfyUI server
+
+# DIRECT DEEPSEEK DIRECTOR + OPENROUTER DESPINA
+DEEPSEEK_API_KEY=            # https://api.deepseek.com/chat/completions only
+OPENROUTER_API_KEY=          # POST /api/v1/audio/speech, google/gemini-3.8-flash-tts, voice Despina
+```
+
+## DeepSeek 导演与 Despina 配音
+
+可选流程，不改变上面的默认供应商，也不把 DeepSeek 转去 OpenRouter。
+
+- 导演：`DEEPSEEK_API_KEY`，`POST https://api.deepseek.com/chat/completions`，模型 `deepseek-flash` 或 `deepseek-v4-pro`。
+- 配音：`OPENROUTER_API_KEY`，`POST https://openrouter.ai/api/v1/audio/speech`，模型 `google/gemini-3.8-flash-tts`，声线 `Despina`，`response_format=pcm`，再封装为 24000 Hz 单声道 16-bit WAV。仅有密钥时不会进入 `tts_selector` 自动排序；选择器需要 `OPENMONTAGE_OPENROUTER_TTS=1`。
+- 运行说明：[`deepseek-openrouter-news.md`](deepseek-openrouter-news.md)。
+
+```bash
+python -m lib.deepseek_director compile --offline --brief briefs/news-a.json --project-id ai-news-a --projects-dir projects
+python -m lib.deepseek_director smoke --projects-dir /tmp/openmontage-smoke
 ```
 
 ---
