@@ -248,6 +248,8 @@ ELEVENLABS_API_KEY=your-key    # Premium TTS, AI music, sound effects
 OPENAI_API_KEY=your-key        # OpenAI TTS, GPT Image 2 images
 XAI_API_KEY=your-key           # xAI Grok image edits/generation + Grok video generation
 GOOGLE_API_KEY=your-key        # Google Imagen images, Google TTS (700+ voices)
+DEEPSEEK_API_KEY=your-key      # 可选：直接 DeepSeek 导演，不经过 OpenRouter
+OPENROUTER_API_KEY=your-key    # 可选：Despina 配音 google/gemini-3.8-flash-tts
 
 # More video providers:
 ARK_API_KEY=your-key           # Volcengine Ark direct — Seedance 2.0 Standard/Fast/Mini
